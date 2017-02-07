@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Stripe -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>
+      Stripe.setPublishableKey('{{ pk }}');
+    </script>
+
+    <!-- Payment Form -->
+    <script type="text/javascript" src="/static/frontend.js"></script>
+
+  </head>
+  <body>
+    <h3>PAY ME MAH MONEY!</h3>
+    <form action="/create_and_charge_customer" method="POST" id="checkout-form">
+      <input type="text" data-stripe="number" size=14 placeholder="Card Number">
+      <input type="text" data-stripe="exp_month" size=4 placeholder="MM"> /
+      <input type="text" data-stripe="exp_year" size=6 placeholder="YYYY">
+      <input type="text" data-stripe="cvc" size=6 placeholder="CVC"><br />
+      <input type="submit" value="OK!"><br /><br />
+      <div class="payment-errors"></div>
+    </form>
+  </body>
+</html>
