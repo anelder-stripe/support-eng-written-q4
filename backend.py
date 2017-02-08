@@ -1,8 +1,12 @@
+import os
+
 import stripe
 from flask import Flask, render_template, request
 
-PUBLISHABLE_KEY = "pk_test_rGGe62bND8FrxWNAXHUcAfyU"
-SECRET_KEY = "sk_test_W8xJYzw56NCHun0FT9iGIJeI"
+PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', None)
+SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', None)
+DEBUG = True
+
 
 # Configure Flask
 application = Flask(__name__)
@@ -45,4 +49,4 @@ def create_and_charge_customer():
 
 
 if __name__ == '__main__':
-    application.run(host="0.0.0.0", port=5000, debug=True)
+    application.run(host="0.0.0.0", port=5000, debug=DEBUG)
