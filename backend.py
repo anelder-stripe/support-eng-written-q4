@@ -5,9 +5,8 @@ from flask import Flask, render_template, request
 
 PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', None)
 SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', None)
-PORT = os.getenv('PORT', 5000)
 
-DEBUG = True
+DEBUG = False
 
 
 # Configure Flask
