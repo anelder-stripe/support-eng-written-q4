@@ -5,6 +5,8 @@ from flask import Flask, render_template, request
 
 PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', None)
 SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', None)
+PORT = os.getenv('PORT', 5000)
+
 DEBUG = True
 
 
@@ -49,4 +51,4 @@ def create_and_charge_customer():
 
 
 if __name__ == '__main__':
-    application.run(host="0.0.0.0", port=5000, debug=DEBUG)
+    application.run(host="0.0.0.0", port=PORT, debug=DEBUG)
