@@ -9,7 +9,12 @@ jQuery(function($) {
 function stripeResponseHandler(status, response) {
   var $form = $('#checkout-form');
   if (response.error) {
-    $form.find('.payment-errors').text(response.error.message);
+
+    // ADDED THESE CONSOLE LOGS TO HELP WITH DEBUGGING!
+    console.log('response.error >> ');
+    console.log(response.error);
+    
+    $form.find('.payment-errors').text(response.error);
   } else {
     var token = response.id;
     $.ajax({

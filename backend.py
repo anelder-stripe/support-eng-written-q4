@@ -41,8 +41,8 @@ def create_and_charge_customer():
             currency='aud'
         )
     except stripe.error.StripeError as e:
-        body = e.json_body
-        return render_response("error", body)
+        #body = e.json_body
+        return render_response("error", e)
     except Exception as e:
         return render_response("error", "backend error")
 
